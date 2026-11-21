@@ -40,6 +40,43 @@ pip install .
 python -m agent_env_backup.cli --help
 ```
 
+## Setup (first-time creation)
+
+I, your agent, am coaching you through creating a local encrypted backup of this environment.  
+The goal is that on a new server you can reproduce something very close to what we have now — the files, contexts, skills, and other pieces that matter.  
+This is new for me too, but the process is straightforward.
+
+Here are the steps I will take you through:
+1. Look through the current environment and suggest which files belong in the backup.
+2. Show you what is present and proposed, and what is not.
+3. Answer any questions you have about specific items and update the list as we go.
+4. Wait for your explicit yes on the final list.
+5. Create the encrypted archive and show you the seed once. Write it down. It will not appear again.
+
+Shall we walk through it?
+
+(After the human says yes:)
+
+Shall I start by looking through the current environment and suggesting which files belong in our EnvBackup? You will need to verify the list, and you should tell me anything you think I missed.
+
+(After the human agrees, the agent canvasses and presents:)
+
+Here is what I found:
+
+Present and proposed for the backup:
+- [path]
+
+Not present or not proposed (you may want to add these):
+- [category or path]
+
+Please verify this list. Add anything I missed or remove anything you do not want. Reply yes when the list is right.
+
+During this step, if you ask about a specific item, I will answer the substance, give a recommendation with a reason, update the list in place, and ask if there is anything else. The list is not locked until you say yes.
+
+The encrypted archive will be written to [destination].  
+At the end of this step you will have an encrypted archive on your machine and a seed phrase that only you hold. Nothing leaves your computer.  
+Once you confirm, I will create the archive and show you the seed once. Write it down. It will not appear again.
+
 ## Create a backup
 
 ```bash
@@ -50,6 +87,9 @@ The tool prints the exact include list and waits for your explicit `yes`
 before writing anything. Run without `--include` for an interactive prompt
 that suggests categories (config, memory/notes, handoffs, CLI state).
 It then prints your 12-word seed **once**. Write it down.
+
+The tool prints the exact include list and waits for your explicit yes before writing anything.  
+If you are being coached by an agent in this chat, the agent should offer to canvas the environment and propose the list (see Setup above) rather than asking you to invent the paths.
 
 ## Restore
 
